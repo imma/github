@@ -1,5 +1,6 @@
 {
   "require": [
+    "go",
     [
       "minimal-block",
       "minimal-app"
