@@ -1,0 +1,8 @@
+{
+  "require": [
+    [
+      "minimal-block",
+      "minimal-app"
+    ]
+  ]
+}

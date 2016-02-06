@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+function main {
+  if [[ -x "$(type -P hub)" ]]; then
+    if [[ -x "$(type -P ghi)" ]]; then
+      return 1
+    fi
+  fi
+
+  return 0
+}
+
+source sub "$0" "$@"
