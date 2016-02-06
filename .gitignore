@@ -7,3 +7,9 @@
 # hub
 /bin/hub
 /vendor/hub
+
+# git flow
+/vendor/gitflow
+/bin/git-flow*
+/bin/gitflow*
+/share/doc/gitflow

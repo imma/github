@@ -3,7 +3,9 @@
 function main {
   if [[ -x "$(type -P hub)" ]]; then
     if [[ -x "$(type -P ghi)" ]]; then
-      return 1
+      if [[ -x "$(type -P git-flow)" ]]; then
+        return 1
+      fi
     fi
   fi
 
