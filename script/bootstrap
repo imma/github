@@ -6,6 +6,13 @@ function bootstrap {
 
   app compile bundler
   ln -nfs ../vendor/bundle/bin/ghi bin/
+
+  git clone "git@github.com:github/hub" "$shome/vendor/hub" || true
+  pushd "$shome/vendor/hub"
+  script/build
+  popd
+
+  ln -nfs "../vendor/hub/bin/hub" "$shome/bin/hub"
 }
 
 bootstrap

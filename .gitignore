@@ -1,4 +1,9 @@
+# ghi
+/bin/ghi
 /.bundle/
 /Gemfile.lock
-/bin/ghi
 /vendor/bundle
+
+# hub
+/bin/hub
+/vendor/hub
