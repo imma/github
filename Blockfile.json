@@ -1,6 +1,9 @@
 {
   "require": [
-    "go",
+    [
+      "go",
+      "ruby"
+    ],
     [
       "minimal-block",
       "minimal-app"
