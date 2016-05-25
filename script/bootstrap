@@ -9,12 +9,14 @@ function bootstrap {
 
   git clone "git@github.com:github/hub" "$shome/vendor/hub" || true
   pushd "$shome/vendor/hub"
+  git pull
   script/build
   popd
   ln -nfs "../vendor/hub/bin/hub" "$shome/bin/hub"
 
   git clone "git@github.com:petervanderdoes/gitflow-avh" "$shome/vendor/gitflow" || true
   pushd "$shome/vendor/gitflow"
+  git pull
   make prefix="$shome" install
   popd
 }
