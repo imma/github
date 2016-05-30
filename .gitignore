@@ -1,7 +1,6 @@
 # ghi
 /bin/ghi
 /.bundle/
-/Gemfile.lock
 /vendor/bundle
 
 # hub
