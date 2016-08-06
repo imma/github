@@ -1,13 +1,7 @@
 {
   "require": [
     "git",
-    [
-      "go",
-      "ruby"
-    ],
-    [
-      "minimal-block",
-      "minimal-app"
-    ]
+    "go",
+    "ruby"
   ]
 }
