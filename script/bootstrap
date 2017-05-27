@@ -7,21 +7,20 @@ function bootstrap {
   block compile bundler
   ln -nfs ../vendor/bundle/bin/ghi bin/
 
-  git clone "git@github.com:github/hub" "$shome/vendor/hub" || true
-  pushd "$shome/vendor/hub"
-  git checkout --force 2.2-stable
-  git clean -fdx
-  git pull
-  script/build
-  popd
-  ln -nfs "../vendor/hub/bin/hub" "$shome/bin/hub"
+  local url_hub
 
-  git clone "git@github.com:petervanderdoes/gitflow-avh" "$shome/vendor/gitflow" || true
-  pushd "$shome/vendor/gitflow"
-  git clean -fdx
-  git pull
-  make prefix="$shome" install
-  popd
+  case "$(uname -s)" in
+    Darwin) url_hub="https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-darwin-amd64-${HUB_VERSION}.tgz" ;;
+    *)      url_hub="https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tgz" ;;
+  esac
+
+  local tmp_hub="$(mktemp -t XXXXXX)"
+  trap "$(printf "rm -f '%q'" "$tmp_hub")" EXIT
+  curl -sS -L -o "$tmp_hub" "$url_hub"
+  chmod 755 "$tmp_hub"
+  mv -f "$tmp_hub" "$shome/vendor/hub-${HUB_VERSION}.tgz"
+  (cd "$shome/vendor" && tar xfz "hub-${HUB_VERSION}.tgz")
+  (set +f; cd "$shome/bin" && ln -nfs ../vendor/*${HUB_VERSION}*/bin/hub .)
 }
 
 bootstrap

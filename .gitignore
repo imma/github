@@ -12,3 +12,5 @@
 /bin/git-flow*
 /bin/gitflow*
 /share/doc/gitflow
+
+/vendor
