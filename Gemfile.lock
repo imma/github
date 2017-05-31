@@ -3,11 +3,9 @@ GEM
   specs:
     ghi (1.2.0)
       pygments.rb
-    posix-spawn (0.3.11)
-    pygments.rb (0.6.3)
-      posix-spawn (~> 0.3.6)
-      yajl-ruby (~> 1.2.0)
-    yajl-ruby (1.2.1)
+    multi_json (1.12.1)
+    pygments.rb (1.1.2)
+      multi_json (>= 1.0.0)
 
 PLATFORMS
   ruby
@@ -16,4 +14,4 @@ DEPENDENCIES
   ghi
 
 BUNDLED WITH
-   1.13.1
+   1.14.6
