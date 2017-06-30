@@ -5,6 +5,7 @@ function _github_profile {
   PATH="$shome/bin:$PATH"
 
   HUB_VERSION="2.2.9"
+  GHI_VERSION="1.2.0"
 }
 
 _github_profile

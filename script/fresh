@@ -8,9 +8,9 @@ function main {
     return 1
   fi
 
-  if ! type -P ghi >/dev/null; then
+  if [[ "$($shome/script/version | jq -r '.ghi')" != "$GHI_VERSION" ]]; then
     return 1
-   fi
+  fi
 
   return 0
 }
