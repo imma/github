@@ -10,8 +10,8 @@ function bootstrap {
   local url_hub
 
   case "${DISTRIB_ID}" in
-    Darwin)        url_hub="https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-darwin-amd64-${HUB_VERSION}.tgz" ;;
-    Ubuntu|Amazon) url_hub="https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tgz" ;;
+    Darwin) url_hub="https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-darwin-amd64-${HUB_VERSION}.tgz" ;;
+    *)      url_hub="https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tgz" ;;
   esac
 
   local tmp_hub="$(mktemp -t XXXXXX)"
