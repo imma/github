@@ -4,6 +4,7 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
+  cd "$shome"
   if [[ "$($shome/script/version | jq -r '.hub')" != "$HUB_VERSION" ]]; then
     return 1
   fi
