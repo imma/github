@@ -6,10 +6,12 @@ function version {
 
   local ver_ghi="$(ghi --version 2>/dev/null | awk 'NR == 1 {print $3}' || true)"
   local ver_hub="$(hub version 2>/dev/null | awk '$1 == "hub" { print $3}' || true)"
+  local ver_ghrel="$(github-release --version 2>/dev/null | awk '{ print $2}' | sed 's#^v##' || true)"
   jq -n \
     --arg ghi "$ver_ghi" \
     --arg hub "$ver_hub" \
-    '{ghi: $ghi, hub: $hub}'
+    --arg ghrel "$ver_ghrel" \
+    '{ghi: $ghi, hub: $hub, "github-release": $ghrel}'
 }
 
 version "$@"

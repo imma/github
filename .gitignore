@@ -12,3 +12,8 @@
 /share/doc/gitflow
 Gemfile.lock
 Gemfile.lock
+
+# github-release
+bin/github-release
+pkg/
+src/
