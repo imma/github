@@ -24,6 +24,11 @@ function bootstrap {
 
   export GOPATH="$shome"
   go get -u github.com/aktau/github-release
+
+  git clone git@github.com:whiteinge/ok.sh "$shome/vendor/ok.sh" || true
+  cd "$shome/vendor/ok.sh"
+  git pull
+  ln -nfs "../vendor/ok.sh/ok.sh" "$shome/bin/ok.sh"
 }
 
 bootstrap

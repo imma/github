@@ -5,6 +5,11 @@ function main {
   source "$shome/script/profile"
 
   cd "$shome"
+
+  if ! type -P ok.sh >/dev/null; then
+    return 1
+  fi
+
   if [[ "$($shome/script/version | jq -r '.hub')" != "$HUB_VERSION" ]]; then
     return 1
   fi

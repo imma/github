@@ -17,3 +17,6 @@ Gemfile.lock
 bin/github-release
 pkg/
 src/
+
+# ok.sh
+bin/ok.sh
