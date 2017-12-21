@@ -15,6 +15,7 @@ function bootstrap {
   trap "$(printf "rm -f '%q'" "$tmp_hub")" EXIT
   curl -sS -L -o "$tmp_hub" "$url_hub"
   chmod 755 "$tmp_hub"
+  mkdir -p "$shome/vendor"
   mv -f "$tmp_hub" "$shome/vendor/hub-${HUB_VERSION}.tgz"
   (cd "$shome/vendor" && tar xfz "hub-${HUB_VERSION}.tgz")
   (set +f; cd "$shome/bin" && ln -nfs ../vendor/*${HUB_VERSION}*/bin/hub .)
