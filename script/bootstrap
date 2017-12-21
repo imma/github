@@ -4,9 +4,6 @@ function bootstrap {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  block compile bundler
-  ln -nfs ../vendor/bundle/bin/ghi bin/
-
   local url_hub
 
   case "${DISTRIB_ID}" in

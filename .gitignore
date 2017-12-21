@@ -1,17 +1,5 @@
-# ghi
-/bin/ghi
-/.bundle/
-/vendor
-
 # hub
 /bin/hub
-
-# git flow
-/bin/git-flow*
-/bin/gitflow*
-/share/doc/gitflow
-Gemfile.lock
-Gemfile.lock
 
 # github-release
 bin/github-release
