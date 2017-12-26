@@ -5,7 +5,11 @@ function main {
   source "$shome/script/profile"
   source normalize  
 
-  local repo="$1"; shift
+  if [[ "$#" == 0 ]]; then
+    local repo="$(cd "./$(git rev-parse --show-cdup)" && cat .repo-name)"
+  else
+    local repo="$1"; shift
+  fi
   http -b "https://api.github.com/repos/${repo}/releases"
 }
 

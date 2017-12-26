@@ -5,9 +5,7 @@ function main {
   source "$shome/script/profile"
   source normalize  
 
-  local repo="$1"; shift
-
-  gh releases "$repo"
+  gh releases "$@"
 }
 
 source sub "$BASH_SOURCE" "$@"
