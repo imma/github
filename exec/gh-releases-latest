@@ -5,7 +5,7 @@ function main {
   source "$shome/script/profile"
   source normalize  
 
-  gh releases "$@"
+  gh releases "$@" | jq 'map(select(.prerelease == false)) | map({tag: (.tag_name | gsub("^v";"")), assets: (.assets | map(.browser_download_url))}) | .[0]'
 }
 
 source sub "$BASH_SOURCE" "$@"
