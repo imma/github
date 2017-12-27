@@ -10,7 +10,10 @@ function main {
   else
     local repo="$1"; shift
   fi
-  http -b "https://api.github.com/repos/${repo}/releases"
+  {
+    http -b "https://api.github.com/repos/${repo}/releases"
+    http -b "https://api.github.com/repos/${repo}/tags"
+  } | jq -s 'reduce .[] as $elems ([]; . + $elems)'
 }
 
 source sub "$BASH_SOURCE" "$@"
