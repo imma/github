@@ -5,7 +5,8 @@ function main {
   source "$shome/script/profile"
   source normalize  
 
-  gh releases "$@" | jq 'map(select(.prerelease != true)) | map({tag: (.tag_name//.name | gsub("^v";"")), assets: (.assets//[] | map(.browser_download_url))}) | .[0]'
+  local prefix="$(echo "$1" | cut -d/ -f3-)"
+  gh releases "$@" | jq --arg prefix "$prefix" 'map(select(.prerelease != true)) | map({tag: (.tag_name//.name | gsub("^v";"")), assets: (.assets//[] | map(.browser_download_url))}) | map(select(.tag | startswith($prefix))) | .[0]'
 }
 
 source sub "$BASH_SOURCE" "$@"

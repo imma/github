@@ -10,9 +10,12 @@ function main {
   else
     local repo="$1"; shift
   fi
+
+  repo="$(echo "$repo" | cut -d/ -f1-2)"
+
   {
-    http -b "https://api.github.com/repos/${repo}/releases"
-    http -b "https://api.github.com/repos/${repo}/tags"
+    http -Ib "https://api.github.com/repos/${repo}/releases"
+    http -Ib "https://api.github.com/repos/${repo}/tags"
   } | jq -s 'reduce .[] as $elems ([]; . + $elems)'
 }
 
