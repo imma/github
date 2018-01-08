@@ -7,7 +7,7 @@ function main {
 
   local prefix="$(echo "$1" | cut -d/ -f3-)"
   gh releases "$@" | jq --arg prefix "$prefix" '
-    map(select(.prerelease != true)) 
+    map(select(.prerelease//false != true)) 
     | map({tag: (.tag_name//.name | gsub("^v";"")), assets: (.assets//[] | map(.browser_download_url))}) 
     | map(select(.tag | startswith($prefix))) 
     | .[0]'

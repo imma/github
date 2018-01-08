@@ -14,9 +14,9 @@ function main {
   repo="$(echo "$repo" | cut -d/ -f1-2)"
 
   {
-    http -Ib "https://api.github.com/repos/${repo}/releases"
-    http -Ib "https://api.github.com/repos/${repo}/tags"
-  } | jq -s 'reduce .[] as $elems ([]; . + $elems)'
+    http -Ib "https://api.github.com/repos/${repo}/releases" | jq '.[]'
+    http -Ib "https://api.github.com/repos/${repo}/tags" | jq '.[]'
+  } | jq -s 'reduce .[] as $elems ([]; . + [$elems])'
 }
 
 source sub "$BASH_SOURCE" "$@"
