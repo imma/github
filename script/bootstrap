@@ -20,9 +20,6 @@ function bootstrap {
   (cd "$shome/vendor" && tar xfz "hub-${HUB_VERSION}.tgz")
   (set +f; cd "$shome/bin" && ln -nfs ../vendor/*${HUB_VERSION}*/bin/hub .)
 
-  export GOPATH="$shome"
-  go get -u github.com/aktau/github-release
-
   git clone git@github.com:whiteinge/ok.sh "$shome/vendor/ok.sh" || true
   cd "$shome/vendor/ok.sh"
   git pull

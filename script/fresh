@@ -14,10 +14,6 @@ function main {
     return 1
   fi
 
-  if [[ "$($shome/script/version | jq -r '.["github-release"]')" != "$GITHUB_RELEASE_VERSION" ]]; then
-    return 1
-  fi
-
   return 0
 }
 
